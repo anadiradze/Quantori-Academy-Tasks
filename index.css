@@ -113,4 +113,100 @@ body {
   .background {
     background-position-y: 50%;
   }
-} 
+}
+
+.btn {
+  height: 34px;
+  width: 5px;
+  border-radius: 10px;
+  background: #b5b7b9;
+  box-shadow: inset #7e7e7e 4px 0 8px 1px, #c2c4c6 -1px 0px 2px;
+}
+.muteBtn {
+  position: absolute;
+  height: 45px;
+  top: 100px;
+  right: -3.3px;
+  transform: rotateY(237deg);
+  transform-style: preserve-3d;
+}
+.volumeUp {
+  position: absolute;
+  top: 105px;
+  left: -2.5px;
+  transform: rotateY(237deg);
+  transform-style: preserve-3d;
+}
+.volumeDown {
+  position: absolute;
+  top: 145px;
+  left: -2.5px;
+  transform: rotateY(237deg);
+  transform-style: preserve-3d;
+}
+.toggle {
+  width: 2px;
+  height: 23px;
+  background: #bbbcc0;
+  border-radius: 10px;
+  position: absolute;
+  box-shadow: #eee -1px 1px, #777 -2px 3px, #505057 -3px 3px,
+    inset #909197 -3px 0 3px;
+  top: 69px;
+  left: -2px;
+  transform: rotateY(130deg);
+}
+/* SCREEN */
+.whiteDots {
+  display: flex;
+  gap: 0.015em;
+}
+.whiteDot {
+  display: block;
+  height: 0.04em;
+  width: 0.04em;
+  border-radius: 0.05em;
+  background: #ffffff;
+}
+.icons {
+  display: flex;
+  align-items: center;
+}
+.iconsUpLeft {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.02em;
+  flex: 1.5;
+}
+.singTel {
+  font-size: 0.08em;
+  color: #ffffff;
+  margin: 0;
+}
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.line {
+  display: block;
+  width: 0.25em;
+  height: 0.038em;
+  border-radius: 0.05em;
+  background: #b5b7b9;
+}
+.battery {
+  display: flex;
+  flex: 1.5;
+  justify-content: flex-end;
+  align-items: center;
+}
+.time {
+  font-size: 0.5em;
+  color: #ffffff;
+}
+.date {
+  font-size: 0.16em;
+  color: #ffffff;
+}
