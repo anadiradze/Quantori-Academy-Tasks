@@ -1,0 +1,116 @@
+html,
+body {
+  box-sizing: border-box;
+  font-size: 100px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.background {
+  background-image: url("./assets/steeve6.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+}
+
+.iphone {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(49%, -40%) rotate(-8deg);
+}
+
+.flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flexRowCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.border {
+  width: 2.3em;
+  height: 4.35em;
+  border-radius: 0.4em;
+  border: solid #b5b7b9 0.03em;
+  background-color: #f8f8f8;
+}
+
+.AllFrontFacingFeatures {
+  margin-top: 0.09em;
+  position: relative;
+}
+.BottomFrontFacingFeatures {
+  gap: 0.05em;
+}
+.earpiece {
+  display: block;
+  height: 0.06em;
+  width: 0.06em;
+  border-radius: 0.05em;
+  background: #333;
+  margin: 0 auto;
+}
+.speaker {
+  display: block;
+  width: 0.4em;
+  height: 0.038em;
+  border-radius: 0.05em;
+  background: #292728;
+}
+
+.camera {
+  position: absolute;
+  display: block;
+  height: 0.08em;
+  width: 0.08em;
+  border-radius: 0.05em;
+  background: #333;
+  margin-left: -0.15em;
+  margin-top: -0.065em;
+}
+
+.screen {
+  margin: 0.2em 0.1em 0.1em 0.1em;
+  background-color: #292728;
+  width: 2.1em;
+  height: 3.3em;
+}
+
+.roundBtn {
+  margin: 0 auto;
+  width: 0.4em;
+  height: 0.4em;
+  background: #ccc;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #2d2f30 0%,
+    #c2c4c6 50%,
+    #f3f5f5 69%,
+    #3e4041 100%
+  );
+  position: relative;
+}
+.roundBtn:after {
+  content: "";
+  width: 0.35em;
+  height: 0.35em;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 0.025em;
+  top: 0.028em;
+}
+
+@media (max-height: 600px) {
+  .background {
+    background-position-y: 50%;
+  }
+} 
