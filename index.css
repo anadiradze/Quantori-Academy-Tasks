@@ -7,19 +7,18 @@ body {
 }
 
 .background {
-  background-image: url("./assets/steeve6.jpg");
+  background-image: url("./assets/wallpaper.jpg");
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   height: 100vh;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.iphone {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(49%, -40%) rotate(-8deg);
+.iphone{
+  position: relative;
 }
 
 .flexColumnCenter {
