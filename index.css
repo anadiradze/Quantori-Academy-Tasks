@@ -157,6 +157,13 @@ body {
   transform: rotateY(130deg);
 }
 /* SCREEN */
+.screen {
+  position: relative;
+  background-image: url("./assets/bg.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
 .whiteDots {
   display: flex;
   gap: 0.015em;
@@ -201,12 +208,66 @@ body {
   flex: 1.5;
   justify-content: flex-end;
   align-items: center;
+  margin-right: 0.05em;
+}
+.timeAndDate {
+  position: absolute;
+  left: 16%;
+  top: 16%;
+
 }
 .time {
-  font-size: 0.5em;
-  color: #ffffff;
+  font-size: 0.4em;
+  color: #c9c9c9;
 }
 .date {
-  font-size: 0.16em;
+  font-size: 0.14em;
+  color: #c9c9c9;
+}
+
+.slideToUnlock {
+  position: absolute;
+  left: 32%;
+  top: 85%;
+  font-size: 0.15em;
   color: #ffffff;
+}
+.gradient-text {
+  background: -webkit-linear-gradient(left, #979696, #c9c9c9, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.arrow {
+  position: absolute;
+  left: -1em;
+  top: 0;
+  bottom: 0;
+  height: 1.4em;
+}
+.arrow:before,
+.arrow:after {
+  content: "";
+  background-color: #ffffff;
+  width: 0.1em;
+  height: 0.81em;
+  position: absolute;
+  right: 0;
+}
+.arrow:before {
+  top: 0;
+  transform: rotate(-40deg);
+}
+.arrow:after {
+  bottom: 0;
+  transform: rotate(40deg);
+}
+.bottomLine{
+  position: absolute;
+  left: 44%;
+  top: 97%;
+}
+.bottomCamera{
+  position: absolute;
+  left: 88%;
+  top: 94%;
 }
