@@ -1,0 +1,271 @@
+html,
+body {
+  box-sizing: border-box;
+  font-size: 100px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.background {
+  background-image: url("./assets/wallpaper.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iphone{
+  position: relative;
+}
+
+.flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flexRowCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.border {
+  width: 2.3em;
+  height: 4.35em;
+  border-radius: 0.4em;
+  border: solid #b5b7b9 0.03em;
+  background-color: #f8f8f8;
+}
+
+.AllFrontFacingFeatures {
+  margin-top: 0.09em;
+  position: relative;
+}
+.BottomFrontFacingFeatures {
+  gap: 0.05em;
+}
+.earpiece {
+  display: block;
+  height: 0.06em;
+  width: 0.06em;
+  border-radius: 0.05em;
+  background: #333;
+  margin: 0 auto;
+}
+.speaker {
+  display: block;
+  width: 0.4em;
+  height: 0.038em;
+  border-radius: 0.05em;
+  background: #292728;
+}
+
+.camera {
+  position: absolute;
+  display: block;
+  height: 0.08em;
+  width: 0.08em;
+  border-radius: 0.05em;
+  background: #333;
+  margin-left: -0.15em;
+  margin-top: -0.065em;
+}
+
+.screen {
+  margin: 0.2em 0.1em 0.1em 0.1em;
+  background-color: #292728;
+  width: 2.1em;
+  height: 3.3em;
+}
+
+.roundBtn {
+  margin: 0 auto;
+  width: 0.4em;
+  height: 0.4em;
+  background: #ccc;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #2d2f30 0%,
+    #c2c4c6 50%,
+    #f3f5f5 69%,
+    #3e4041 100%
+  );
+  position: relative;
+}
+.roundBtn:after {
+  content: "";
+  width: 0.35em;
+  height: 0.35em;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 0.025em;
+  top: 0.028em;
+}
+
+@media (max-height: 600px) {
+  .background {
+    background-position-y: 50%;
+  }
+}
+
+.btn {
+  height: 0.34em;
+  width: 0.05em;
+  border-radius: 0.1em;
+  background: #b5b7b9;
+  box-shadow: inset #7e7e7e 4px 0 8px 1px, #c2c4c6 -1px 0px 2px;
+}
+.muteBtn {
+  position: absolute;
+  height: 0.45em;
+  top: 1em;
+  right: -0.033em;
+  transform: rotateY(237deg);
+  transform-style: preserve-3d;
+}
+.volumeUp {
+  position: absolute;
+  top: 1.05em;
+  left: -0.025em;
+  transform: rotateY(237deg);
+  transform-style: preserve-3d;
+}
+.volumeDown {
+  position: absolute;
+  top: 1.45em;
+  left: -0.025em;
+  transform: rotateY(237deg);
+  transform-style: preserve-3d;
+}
+.toggle {
+  width: 0.002em;
+  height: 0.23em;
+  background: #bbbcc0;
+  border-radius: 0.1em;
+  position: absolute;
+  box-shadow: #eee -1px 1px, #777 -2px 3px, #505057 -3px 3px,
+    inset #909197 -3px 0 3px;
+  top: 0.69em;
+  left: -0.02em;
+  transform: rotateY(130deg);
+}
+/* SCREEN */
+.screen {
+  position: relative;
+  background-image: url(./assets/bg.jpg);
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+.whiteDots {
+  display: flex;
+  gap: 0.015em;
+}
+.whiteDot {
+  display: block;
+  height: 0.04em;
+  width: 0.04em;
+  border-radius: 0.05em;
+  background: #ffffff;
+}
+.icons {
+  display: flex;
+  align-items: center;
+}
+.iconsUpLeft {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.02em;
+  flex: 1.5;
+}
+.singTel {
+  font-size: 0.08em;
+  color: #ffffff;
+  margin: 0;
+}
+.icon {
+  width: 0.16em;
+  height: 0.16em;
+}
+
+.line {
+  display: block;
+  width: 0.25em;
+  height: 0.038em;
+  border-radius: 0.05em;
+  background: #b5b7b9;
+}
+.battery {
+  display: flex;
+  flex: 1.5;
+  justify-content: flex-end;
+  align-items: center;
+}
+.timeAndDate {
+  position: absolute;
+  left: 16%;
+  top: 16%;
+
+}
+.time {
+  font-size: 0.4em;
+  color: #c9c9c9;
+}
+.date {
+  font-size: 0.14em;
+  color: #c9c9c9;
+}
+
+.slideToUnlock {
+  position: absolute;
+  left: 32%;
+  top: 87%;
+  font-size: 0.15em;
+  color: #ffffff;
+}
+.gradient-text {
+  background: -webkit-linear-gradient(left, #404040, #c9c9c9, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.arrow {
+  position: absolute;
+  left: -1em;
+  top: 0;
+  bottom: 0;
+  height: 1.4em;
+}
+.arrow:before,
+.arrow:after {
+  content: "";
+  background-color: #ffffff;
+  width: 0.1em;
+  height: 0.81em;
+  position: absolute;
+  right: 0;
+}
+.arrow:before {
+  top: 0;
+  transform: rotate(-40deg);
+}
+.arrow:after {
+  bottom: 0;
+  transform: rotate(40deg);
+}
+.bottomLine{
+  position: absolute;
+  left: 44%;
+  top: 97%;
+}
+.bottomCamera{
+  position: absolute;
+  left: 88%;
+  top: 94%;
+}
