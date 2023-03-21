@@ -8,8 +8,8 @@ yesBtn.addEventListener("click", startPlayingSound);
 noBtn.addEventListener("click", stopPlayingSound);
 
 function removeEventListener() {
-  yesBtn.removeEventListener("click", startAnimation);
-  noBtn.removeEventListener("click", startAnimation);
+  yesBtn.removeEventListener("click", startPlayingSound);
+  noBtn.removeEventListener("click", stopPlayingSound);
 }
 function addClassList() {
   blueLogo.classList.add("logo");
