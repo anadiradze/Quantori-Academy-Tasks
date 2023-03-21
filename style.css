@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff89a;
+  width: calc(100vw - 200px);
+  height: calc(100vh - 150px);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  background-image: url("assets/dvd.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  animation-name: move-logo;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  will-change: background-color;
+  transform: translate(-50%, -50%);
+}
+
+.logo.blue {
+  background-color: #0074d9;
+  animation-delay: 0s;
+}
+
+.logo.red {
+  background-color: #eb5353;
+  animation-delay: 2s;
+}
+
+@keyframes move-logo {
+  0% {
+    top: 50%;
+    left: 0%;
+    transform: translate(0, -50%) rotate(0deg);
+  }
+  25% {
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(0deg);
+    background-color: #187498;
+  }
+  50% {
+    top: 50%;
+    left: 100%;
+    transform: translate(0, -50%) rotate(0deg);
+    background-color: #36ae7c;
+  }
+  75% {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(0deg);
+    background-color: #f9d923;
+  }
+  100% {
+    top: 50%;
+    left: 0%;
+    transform: translate(0, -50%) rotate(0deg);
+    background-color: #eb5353;
+  }
+}
+
+.logo.blue {
+  animation-delay: 0s;
+}
+
+.logo.red {
+  animation-delay: 4s;
+}
+
+/* Hovers */
+
+.logo.blue:hover,
+.logo.red:hover {
+  background-color: white;
+}
+
+.logo.blue:hover:before,
+.logo.red:hover:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.1s;
+  z-index: -1;
+}
+
+.logo.blue:hover:after,
+.logo.red:hover:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation-name: flash;
+}
+
+/* Modal CSS */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.modal {
+  background-color: #feec;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.yes{
+  background-color: #5aa468;
+  color: white;
+}
+
+.no {
+  background-color: #d35d7e;
+  color: white;
+}
