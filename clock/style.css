@@ -1,0 +1,29 @@
+body {
+  background: white;
+  text-align: center;
+  font-family: "Comfortaa", cursive;
+}
+
+svg {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}
+
+line {
+    transform-origin: 50% 50%; /* Set the transform origin to the center */
+    animation: clockwise 4s linear infinite; /* Add the animation */
+  }
+  line:nth-of-type(2) {
+    animation: clockwise 24s linear infinite; /* animation for smaller arrow */
+  }
+  
+  @keyframes clockwise {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
