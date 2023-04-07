@@ -18,7 +18,13 @@ const getOddValues = (numbers) => {
  * [4,2,10,27] => 2
  */
 const getSmallestValue = (numbers) => {
-  return Math.min(...numbers);
+  let min = numbers[0];
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] < min) {
+      min = numbers[i];
+    }
+  }
+  return min;
 };
 
 /**
@@ -292,7 +298,7 @@ const getSmallestRow = (numbers) => {
 const getSmallestColumn = (numbers) => {
   const result = [];
   for (let i = 0; i < numbers[0].length; i++) {
-    result.push(Math.min(...numbers.map(row => row[i])));
+    result.push(Math.min(...numbers.map((row) => row[i])));
   }
   return result;
 };
