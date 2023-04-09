@@ -372,11 +372,11 @@ const getCorrectString = (string) => {
   const arr = string.split("");
   for (let i = 0; i < arr.length - 2; i++) {
     if (arr[i] === arr[i + 1] && arr[i + 1] === arr[i + 2]) {
-      console.log(i, arr[i]);
       arr.splice(i, 1);
+      i--;
     }
   }
-  return arr;
+  return arr.join("");
 };
 /**
  * Exercise 22
@@ -404,11 +404,11 @@ const getFlattenedArray = (numbers) => {
 const getNotUniqueValues = (numbers) => {
   const empty = [];
   for (let i = 0; i < numbers.length; i++) {
-    for (let j = 1; j < numbers.length; j++) {
+    for (let j = i + 1; j < numbers.length; j++) {
       if (numbers[i] === numbers[j]) {
         empty.push(numbers[j]);
-        return empty;
       }
     }
   }
+  return empty;
 };
