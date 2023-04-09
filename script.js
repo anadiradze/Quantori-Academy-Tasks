@@ -374,7 +374,6 @@ const getCorrectString = (string) => {
     if (arr[i] === arr[i + 1] && arr[i + 1] === arr[i + 2]) {
       console.log(i, arr[i]);
       arr.splice(i, 1);
-      6;
     }
   }
   return arr;
