@@ -1,6 +1,5 @@
 /* HEADER ELEMENTS  */
 import createElement from "./createElement.js";
-import { updateElements } from "./search.js";
 function createHeader(parent) {
   return createElement({
     tag: "header",
@@ -52,6 +51,7 @@ function createUl(parent) {
   return createElement({
     tag: "ul",
     parent: parent,
+    classList:['ul']
   });
 }
 function createUlH2(parent) {
