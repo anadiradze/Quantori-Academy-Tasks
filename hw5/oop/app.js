@@ -7,7 +7,6 @@ class App extends Component {
     }
 
     render(props) {
-        console.log(this.state.items)
         return super.render({
             children: [
                 new List().render({

@@ -1,6 +1,17 @@
 import createElement from "./createElement.js";
+import {
+  createHeader,
+  createH1,
+  createSearchFieldDiv,
+  createInput,
+  createButton,
+  createUl,
+  createUlH2,
+  createList,
+} from "./elements.js";
+
+let state = undefined;
 (function () {
-  let state = undefined;
   function useState(initialValue) {
     state = state || initialValue;
 
@@ -11,97 +22,6 @@ import createElement from "./createElement.js";
 
     return [state, setValue];
   }
-  /* HEADER ELEMENTS  */
-  function createHeader(parent) {
-    return createElement({
-      tag: "header",
-      classList: ["header"],
-      parent: parent,
-    });
-  }
-  function createH1(parent) {
-    return createElement({
-      tag: "h1",
-      classList: ["h1"],
-      parent: parent,
-      text: "To Do List",
-    });
-  }
-  /* SEARCH FIELD ELEMENTS */
-  function createSearchFieldDiv(parent) {
-    return createElement({
-      tag: "div",
-      classList: ["searchfieldDiv"],
-      parent: parent,
-    });
-  }
-
-  function createInput(parent) {
-    return createElement({
-      tag: "input",
-      attributes: {
-        type: "text",
-        placeholder: "Search...",
-      },
-      classList: ["searchfieldInput"],
-      parent: parent,
-    });
-  }
-
-  function createButton(parent, listener) {
-    return createElement({
-      tag: "button",
-      classList: ["seachfieldButton"],
-      text: "Add item",
-      eventListener: { event: "click", listener: listener },
-      parent: parent,
-    });
-  }
-
-  /* LIST ELEMENTS */
-  function createUl(parent) {
-    return createElement({
-      tag: "ul",
-      parent: parent,
-    });
-  }
-  function createUlH2(parent) {
-    return createElement({
-      tag: "h2",
-      parent: parent,
-      text: "All Tasks",
-    });
-  }
-  function createList({ items }, parent) {
-    return items.map((item) => {
-      const li = createElement({
-        tag: "li",
-        parent: parent,
-        text: item,
-      });
-
-      createElement({
-        tag: "input",
-        attributes: {
-          type: "checkbox",
-        },
-        parent: li,
-      });
-
-      createElement({
-        tag: "img",
-        parent: parent,
-        attributes: {
-          src: "../assets/bin.svg",
-        },
-        parent: li,
-      });
-    });
-  }
-
-    /*COMPLETED LIST ELEMENTS */
-
-
 
   /* DISPLAY/APPEND ELEMENTS */
   function display() {
@@ -109,28 +29,43 @@ import createElement from "./createElement.js";
       tag: "div",
       classList: ["mainContainer"],
     });
-    const [items, setItems] = useState(["Item 1", "Item 2", "Item 3"]);
-    function addItem() {
-      setItems([...items, `Item ${items.length + 1}`]);
-    }
+
+    let [items, setItems] = useState(["Item 1", "Item 2", "Item 3"]);
+
     const header = createHeader(mainContainer);
     const h1 = createH1(header);
     const searchfieldDiv = createSearchFieldDiv(mainContainer);
     const inputText = createInput(searchfieldDiv);
-    const button = createButton(searchfieldDiv, addItem);
+    const button = createButton(searchfieldDiv, newTaskButton);
     const ul = createUl(mainContainer);
     const h2 = createUlH2(ul);
     const listItems = createList({ items }, ul);
-    return [mainContainer, header, h1, searchfieldDiv, inputText, button, ul];
+
+    function newTaskButton() {
+      const inputValue = inputText.value.trim();
+      if (inputValue !== "") {
+        setItems([...items, inputValue]); // Add the input value as a new item to the items array
+        inputText.value = ""; // Clear the input value
+      }
+    }
+    return [
+      mainContainer,
+      header,
+      h1,
+      searchfieldDiv,
+      inputText,
+      button,
+      ul,
+      listItems,
+    ];
   }
 
   function App() {
     const [mainContainer, header, h1, searchfieldDiv, inputText, button, ul] =
       display();
-
     return mainContainer;
   }
-
+  console.log(state, "state");
   function renderApp() {
     const appContainer = document.getElementById("functional-example");
     appContainer.innerHTML = "";

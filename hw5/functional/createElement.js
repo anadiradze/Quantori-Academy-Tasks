@@ -6,6 +6,7 @@ const createElement = ({
   parent,
   child,
   eventListener,
+  eventListenerToRemove
 }) => {
   const element = document.createElement(tag);
 
@@ -25,10 +26,13 @@ const createElement = ({
   }
 
   if (eventListener) {
-    const { event, listener } = eventListener;
+    const { event, listener,} = eventListener;
     element.addEventListener(event, listener);
   }
-
+  if (eventListenerToRemove) {
+    const { event, listener } = eventListenerToRemove;
+    element.removeEventListener(event, listener);
+  }
   if (child) {
     element.appendChild(child);
   }
