@@ -97,11 +97,16 @@ function createList({ items }, parent) {
         listener: (e) => {
           const isChecked = e.target.checked;
           const parentLi = e.target.closest("li");
-          document.querySelector(isChecked ? ".finishedUl" : ".ul").append(parentLi);
+          console.log("li", document.querySelector(".li"));
+          if (isChecked) {
+            document.querySelector(".finishedUl").append(parentLi);
+          } else {
+            document.querySelector(".ul").append(parentLi);
+          }
+          
         },
       },
     });
-    
 
     createElement({
       tag: "img",

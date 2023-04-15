@@ -1,5 +1,7 @@
 import createElement from "./createElement.js";
 import * as el from "./elements.js";
+import { Search } from "./search.js";
+
 let state;
 
 function useState(initialValue) {
@@ -19,12 +21,13 @@ function display() {
     classList: ["mainContainer"],
   });
 
-  let [items, setItems] = useState([
-    "Task 1 Title",
-    "Task 2 Title",
-    "Task 3 Title",
-  ]);
-
+  let [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("unfinishedTasks")) || [
+      "Task 1 Title",
+      "Task 2 Title",
+      "Task 3 Title",
+    ]
+  );
   /* ELEMENTS */
   const header = el.createHeader(mainContainer);
   const h1 = el.createH1(header);
@@ -52,8 +55,11 @@ function display() {
     if (inputValue !== "") {
       setItems([...items, inputValue]);
       modalInput.value = "";
+      const newItems = [...items, inputValue]; //Localstorage
+      setItems(newItems); //Localstorage
+      localStorage.setItem("unfinishedTasks", JSON.stringify(newItems)); // Save unfinishedTasks to localStorage
+      closeModal();
     }
-    closeModal();
   };
   const setupInputChangeListener = (input, addItemButton) => {
     input.addEventListener("input", () => {
@@ -81,20 +87,7 @@ function display() {
   button.addEventListener("click", openModal);
 
   /* SEARCH */
-  input.addEventListener("input", (event) => {
-    const query = event.target.value;
-
-    const filterTasks = (query) => {
-      const filteredTasks = items.filter((task) => {
-        return task.toLowerCase().includes(query.toLowerCase());
-      });
-      return filteredTasks;
-    };
-
-    const filteredTasks = filterTasks(query);
-    ul.innerHTML = "";
-    const listItems = el.createList({ items: filteredTasks }, ul);
-  });
+  const search = new Search(input, items, ul);
 
   return [mainContainer, list, openModal, closeModal, addItem];
 }
