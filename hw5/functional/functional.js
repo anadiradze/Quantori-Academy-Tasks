@@ -1,6 +1,5 @@
 import createElement from "./createElement.js";
 import * as el from "./elements.js";
-
 let state;
 
 function useState(initialValue) {
@@ -35,6 +34,7 @@ function display() {
   const unfinishedH2 = el.createUnfinishedH2(unfinishedUl);
 
   /* MODAL */
+
   const openModal = () => {
     modal.style.display = "flex";
     modalWrapper.style.display = "block";
@@ -72,6 +72,8 @@ function display() {
     addItem
   );
   setupInputChangeListener(modalInput, modalAddItemButton);
+  modal.style.display = modalWrapper.style.display = "none";
+
   button.addEventListener("click", openModal);
 
   /* SEARCH */

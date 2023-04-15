@@ -28,3 +28,4 @@ class CheckboxManager {
 
 const checkboxManager = new CheckboxManager(".checkbox", ".ul", ".finishedUl");
 
+export {checkboxManager}
