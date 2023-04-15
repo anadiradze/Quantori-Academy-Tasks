@@ -51,7 +51,7 @@ function createUl(parent) {
   return createElement({
     tag: "ul",
     parent: parent,
-    classList:['ul']
+    classList: ["ul"],
   });
 }
 function createUlH2(parent) {
@@ -76,6 +76,7 @@ function createList({ items }, parent) {
         type: "checkbox",
       },
       parent: li,
+      classList: ["checkbox"],
     });
 
     createElement({
@@ -94,6 +95,21 @@ function createList({ items }, parent) {
         },
       },
     });
+  });
+}
+
+function createUnfinishedUl(parent) {
+  return createElement({
+    tag: "ul",
+    parent: parent,
+    classList: ["finishedUl"],
+  });
+}
+function createUnfinishedH2(parent) {
+  return createElement({
+    tag: "h2",
+    parent: parent,
+    text: "Completed Tasks",
   });
 }
 
@@ -189,5 +205,7 @@ export {
   createModalContent,
   createModalWrapper,
   createModalH2,
-  createH2AndInputWrapper
+  createH2AndInputWrapper,
+  createUnfinishedUl,
+  createUnfinishedH2,
 };
