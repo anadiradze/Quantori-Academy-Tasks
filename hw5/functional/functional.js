@@ -19,7 +19,11 @@ function display() {
     classList: ["mainContainer"],
   });
 
-  let [items, setItems] = useState(["Item 1", "Item 2", "Item 3"]);
+  let [items, setItems] = useState([
+    "Task 1 Title",
+    "Task 2 Title",
+    "Task 3 Title",
+  ]);
 
   /* ELEMENTS */
   const header = el.createHeader(mainContainer);
@@ -111,4 +115,4 @@ function renderApp() {
   renderApp();
 })();
 
-export {useState}
+export { useState };
