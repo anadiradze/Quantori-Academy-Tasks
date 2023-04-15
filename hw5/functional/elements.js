@@ -61,7 +61,22 @@ function createUlH2(parent) {
     text: "All Tasks",
   });
 }
+function createUnfinishedUl(parent) {
+  return createElement({
+    tag: "ul",
+    parent: parent,
+    classList: ["finishedUl"],
+  });
+}
+function createUnfinishedH2(parent) {
+  return createElement({
+    tag: "h2",
+    parent: parent,
+    text: "Completed Tasks",
+  });
+}
 function createList({ items }, parent) {
+  console.log(items, "items from elements.js");
   return items.map((item) => {
     const li = createElement({
       tag: "li",
@@ -77,7 +92,16 @@ function createList({ items }, parent) {
       },
       parent: li,
       classList: ["checkbox"],
+      eventListener: {
+        event: "click",
+        listener: (e) => {
+          const isChecked = e.target.checked;
+          const parentLi = e.target.closest("li");
+          document.querySelector(isChecked ? ".finishedUl" : ".ul").append(parentLi);
+        },
+      },
     });
+    
 
     createElement({
       tag: "img",
@@ -95,21 +119,6 @@ function createList({ items }, parent) {
         },
       },
     });
-  });
-}
-
-function createUnfinishedUl(parent) {
-  return createElement({
-    tag: "ul",
-    parent: parent,
-    classList: ["finishedUl"],
-  });
-}
-function createUnfinishedH2(parent) {
-  return createElement({
-    tag: "h2",
-    parent: parent,
-    text: "Completed Tasks",
   });
 }
 

@@ -110,3 +110,5 @@ function renderApp() {
 (function () {
   renderApp();
 })();
+
+export {useState}
