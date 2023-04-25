@@ -1,5 +1,7 @@
 /* HEADER ELEMENTS  */
 import createElement from "./createElement.js";
+import { deleteTask, updateTask } from "./fetch.js";
+
 function createHeader(parent) {
   return createElement({
     tag: "header",
@@ -75,13 +77,13 @@ function createUnfinishedH2(parent) {
     text: "Completed Tasks",
   });
 }
-function createList({ items }, parent) {
+function createList(items, parent) {
   console.log(items, "items from elements.js");
   return items.map((item) => {
     const li = createElement({
       tag: "li",
       parent: parent,
-      text: item,
+      text: item.title,
       classList: ["li"],
     });
 
@@ -97,20 +99,25 @@ function createList({ items }, parent) {
         listener: (e) => {
           const isChecked = e.target.checked;
           const parentLi = e.target.closest("li");
-          console.log("li", document.querySelector(".li"));
           if (isChecked) {
             document.querySelector(".finishedUl").append(parentLi);
+            // items.find((t) => {
+            //   if(t.id === item.id){
+            //     updateTask(t.id, true);
+            //   }
+            // });
           } else {
             document.querySelector(".ul").append(parentLi);
+            // items.find((t) => {
+            //   updateTask(t.id, false);
+            // });
           }
-          
         },
       },
     });
 
     createElement({
       tag: "img",
-      parent: parent,
       attributes: {
         src: "../assets/bin.svg",
       },
@@ -119,8 +126,11 @@ function createList({ items }, parent) {
       eventListener: {
         event: "click",
         listener: function removalListener(e) {
-          e.srcElement.parentNode.remove();
-          items.splice(item, 1);
+          items.find((t) => {
+            if (e.srcElement.parentNode.innerText === t.title) {
+              deleteTask(t.id);
+            }
+          });
         },
       },
     });
@@ -182,22 +192,20 @@ function createDivforButtons(parent) {
   });
 }
 
-function createModalCancelButton(parent, listener) {
+function createModalCancelButton(parent) {
   return createElement({
     tag: "button",
     classList: ["modalCancelButton"],
     text: "Cancel",
-    eventListener: { event: "click", listener: listener },
     parent: parent,
   });
 }
 
-function createModalAddItemButton(parent, listener) {
+function createModalAddItemButton(parent) {
   return createElement({
     tag: "button",
     classList: ["modalAddItemButton"],
     text: "Add Item",
-    eventListener: { event: "click", listener: listener },
     parent: parent,
   });
 }
